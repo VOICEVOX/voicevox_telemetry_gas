@@ -1,0 +1,2 @@
+# voivcevox_telemetry_gas
+VOICEVOXの辞書を収集するGoogle Apps Scriptコード
