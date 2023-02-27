@@ -1,0 +1,37 @@
+{
+  "name": "vv-telemetry-gas",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "run-s build:clean build:rollup build:postprocess build:prepare-for-gas",
+    "build:clean": "rimraf ./dist",
+    "build:rollup": "rollup -c",
+    "build:postprocess": "ts-node ./scripts/postprocess.ts",
+    "build:prepare-for-gas": "cp ./appsscript.json ./dist/appsscript.json",
+    "push": "clasp push",
+    "deploy": "ts-node ./scripts/start.ts",
+    "start": "run-s build push deploy"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^24.0.1",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-typescript": "^11.0.0",
+    "@types/google-apps-script": "^1.0.57",
+    "@types/node": "^18.14.1",
+    "@types/uglify-js": "^3.17.1",
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^4.1.2",
+    "rollup": "^3.17.2",
+    "ts-node": "^10.9.1",
+    "tslib": "^2.5.0",
+    "typescript": "^4.9.5",
+    "uglify-js": "^3.17.4"
+  },
+  "dependencies": {
+    "zod": "^3.20.6"
+  }
+}
