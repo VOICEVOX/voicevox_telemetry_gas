@@ -36,20 +36,19 @@ export const dictWordFromTuple = (row: string[]) => {
 
 export type DictWord = z.infer<typeof dictWordSchema>;
 
-export const requestType = {
-  apply_word: dictWordSchema,
-  rewrite_word: dictWordSchema,
-  delete_word: z.object({
-    word_uuid: z.string(),
+export const requestSchema = z.union([
+  z.object({
+    event: z.literal("apply_word"),
+    properties: dictWordSchema,
   }),
-};
-
-export const requestSchema = z.union(
-  // @ts-expect-error 謎のエラー
-  Object.entries(requestType).map(([key, value]) => {
-    return z.object({
-      event: z.literal(key),
-      properties: value,
-    });
-  })
-);
+  z.object({
+    event: z.literal("rewrite_word"),
+    properties: dictWordSchema,
+  }),
+  z.object({
+    event: z.literal("delete_word"),
+    properties: z.object({
+      word_uuid: z.string(),
+    }),
+  }),
+]);
