@@ -11,7 +11,6 @@ npm run build
 ```
 
 ## デプロイ
- 
 
 ```
 npm run push
