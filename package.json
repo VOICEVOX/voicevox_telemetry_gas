@@ -10,7 +10,7 @@
     "build:postprocess": "ts-node ./scripts/postprocess.ts",
     "build:prepare-for-gas": "cp ./appsscript.json ./dist/appsscript.json",
     "push": "clasp push",
-    "deploy": "ts-node ./scripts/start.ts",
+    "deploy": "ts-node ./scripts/deploy.ts",
     "start": "run-s build push deploy",
     "typecheck": "tsc --noEmit",
     "lint": "eslint . --ext .ts,.js",
