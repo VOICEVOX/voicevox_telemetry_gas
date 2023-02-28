@@ -3,7 +3,7 @@ import * as uglify from "uglify-js";
 
 const bundleFile = fs.readFileSync("./dist/bundle.js");
 
-let bundle = bundleFile.toString().replace(/export\{.*\}/g, "");
+const bundle = bundleFile.toString().replace(/export\{.*\}/g, "");
 
 const license = fs.readFileSync("./LICENSE");
 
