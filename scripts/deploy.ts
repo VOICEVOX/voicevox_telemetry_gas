@@ -5,13 +5,14 @@
 
 import * as child_process from "node:child_process";
 
-const rawDeployments = child_process.execSync("clasp deployments", {
-  encoding: "utf-8",
-});
-
 // 既存のデプロイメントを取得
+const rawDeployments = child_process
+  .execSync("clasp deployments", {
+    encoding: "utf-8",
+  })
+  .trim();
+
 const deploymentIds = rawDeployments
-  .trim()
   .split("\n")
   // - <デプロイメントID> @<バージョン>
   .filter((line) => line.match(/^- ([^\s]+) @[^\s]+$/))
