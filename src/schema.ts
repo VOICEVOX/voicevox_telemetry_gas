@@ -7,7 +7,7 @@ export const dictWordSchema = z.object({
   accent_type: z.number(),
   word_type: z
     .enum(["PROPER_NOUN", "COMMON_NOUN", "VERB", "ADJECTIVE", "SUFFIX"])
-    .or(z.null())
+    .or(z.null()),
   priority: z.number(),
 });
 

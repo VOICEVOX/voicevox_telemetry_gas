@@ -17,7 +17,7 @@ export function doPost(e: GoogleAppsScript.Events.DoPost) {
     }
     case "rewrite_word": {
       const values = getValues(sheet);
-      const row = values.findIndex((r) => r[0] === data.uuid);
+      const row = values.findIndex((r) => r[0] === data.properties.word_uuid);
       if (row === -1) break;
       const range = sheet.getRange(row + 2, 1, 1, sheet.getLastColumn());
       range.setValues([
@@ -27,7 +27,7 @@ export function doPost(e: GoogleAppsScript.Events.DoPost) {
     }
     case "delete_word": {
       const values = getValues(sheet);
-      const row = values.findIndex((r) => r[0] === data.uuid);
+      const row = values.findIndex((r) => r[0] === data.properties.word_uuid);
       if (row === -1) break;
       sheet.deleteRow(row + 2);
       break;
