@@ -21,11 +21,14 @@ const deploymentIds = rawDeployments
   // デプロイメントID取得
   .map((line) => line.split(" ")[1]);
 
-const latestDeploymentId = deploymentIds[deploymentIds.length - 1];
+const latestDeploymentId =
+  deploymentIds.length > 0
+    ? deploymentIds[deploymentIds.length - 1]
+    : undefined;
 
 // デプロイ
 let command = "clasp deploy";
-if (latestDeploymentId) {
+if (latestDeploymentId != undefined) {
   command += ` --deploymentId ${latestDeploymentId}`;
 }
 console.log(`Deploying... ${command}`);
