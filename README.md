@@ -2,29 +2,69 @@
 
 VOICEVOX の辞書を収集する Google Apps Script コード
 
+## 環境構築
+
+```sh
+npm ci
+```
+
+## clasp の準備
+
+https://script.google.com/home/usersettings から Google Apps Script API をオンにする。
+
+```sh
+# Googleアカウントにログイン
+npx clasp login
+
+# 初期化
+npx clasp create --title voicevox_telemetry_gas --type sheets
+```
+
 ## ビルド
 
-ビルドする前に、 `src/config.example.ts` を `src/config.ts` にコピーし、スプレッドシートのIDをダミーから置き換えてください。
+ビルドする前に `src/config.example.ts` を `src/config.ts` にコピーし、スプレッドシートの ID をダミーから置き換えてください。
+`.clasp.json`の`parentId`の値がスプレッドシート ID です。
 
-```
+```sh
 npm run build
 ```
 
 ## デプロイ
 
-```
+`.clasp.json`の`rootDir`を`./dist`に変更してください。
+
+```sh
 npm run push
 npm run deploy
 ```
 
-デプロイするには、[clasp](https://www.npmjs.com/package/@google/clasp) にログインし、`.clasp.example.json` を `.clasp.json` にコピーし、スクリプトのIDをダミーから置き換えてください。
+または
 
-また、
-```
+```sh
 npm start
 # または npm run start
 ```
-で、ビルド→デプロイをすることができます。
+
+で、ビルド → デプロイをすることができます。
+
+## 動作確認
+
+```sh
+# TODO
+```
+
+## タイプチェック・lint
+
+```sh
+npm run typecheck
+npm run lint
+```
+
+## フォーマット
+
+```sh
+npm run fmt
+```
 
 # ライセンス
 
