@@ -18,10 +18,9 @@ const deploymentIds = rawDeployments
   // HEADは除外
   .filter((line) => !line.includes("@HEAD"))
   // デプロイメントID取得
-  .map((line) => line.match(/- ([^\s]+) @[^\s]+$/)?.[1]);
+  .map((line) => line.split(" ")[1]);
 
 const latestDeploymentId = deploymentIds[deploymentIds.length - 1];
-if (!latestDeploymentId) throw new Error("Could not find deployment ID");
 
 // デプロイ
 let command = "clasp deploy";
