@@ -31,7 +31,7 @@ let command = "clasp deploy";
 if (latestDeploymentId != undefined) {
   command += ` --deploymentId ${latestDeploymentId}`;
 }
-console.log(`Deploying... ${command}`);
+console.log(`Deploying... "${command}"`);
 const rawNewDeployment = child_process.execSync(command, {
   encoding: "utf-8",
 });
