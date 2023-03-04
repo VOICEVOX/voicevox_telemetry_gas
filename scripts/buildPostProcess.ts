@@ -1,6 +1,7 @@
 import * as fs from "node:fs";
 import * as uglify from "uglify-js";
 
+// update bundle.js
 const bundleFile = fs.readFileSync("./dist/bundle.js");
 
 const bundle = bundleFile.toString().replace(/export\{.*\}/g, "");
@@ -14,3 +15,6 @@ const code =
   `\n/*\nhttps://github.com/VOICEVOX/voicevox_telemetry_gas\n\n${license}\n*/`;
 
 fs.writeFileSync("./dist/bundle.js", code);
+
+// copy appsscript.json
+fs.copyFileSync("./appsscript.json", "./dist/appsscript.json");
