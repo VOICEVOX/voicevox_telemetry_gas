@@ -60,7 +60,7 @@ npm run typecheck
 npm run lint
 ```
 
-## フォーマット
+## コードフォーマット
 
 ```sh
 npm run fmt

@@ -8,6 +8,7 @@
     "build:postprocess": "ts-node ./scripts/buildPostProcess.ts",
     "push": "clasp push --force",
     "deploy": "ts-node ./scripts/deploy.ts",
+    "deploy:check": "ts-node ./scripts/deployCheck.ts",
     "start": "run-s build push deploy",
     "typecheck": "tsc --noEmit",
     "lint": "eslint . --ext .ts,.js",
@@ -21,6 +22,7 @@
     "@types/google-apps-script": "1.0.57",
     "@types/node": "18.14.1",
     "@types/uglify-js": "3.17.1",
+    "@types/yargs": "17.0.24",
     "@typescript-eslint/eslint-plugin": "5.54.0",
     "@typescript-eslint/parser": "5.54.0",
     "eslint": "8.35.0",
@@ -37,6 +39,7 @@
     "uglify-js": "3.17.4"
   },
   "dependencies": {
+    "yargs": "17.7.1",
     "zod": "3.20.6"
   }
 }
