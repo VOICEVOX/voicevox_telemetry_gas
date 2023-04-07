@@ -44,6 +44,7 @@ const dummyWordProperties = {
       if (json.api_version == undefined)
         throw new Error("バージョン情報が取得できませんでした");
     });
+  console.log("成功");
 
   // 新規単語を登録
   console.log("新規単語を登録");
@@ -59,6 +60,7 @@ const dummyWordProperties = {
     .then((text) => {
       if (text != "ok") throw new Error("新規単語の登録に失敗しました");
     });
+  console.log("成功");
 
   // 既存単語を更新
   console.log("既存単語を更新");
@@ -77,6 +79,7 @@ const dummyWordProperties = {
     .then((text) => {
       if (text != "ok") throw new Error("既存単語の更新に失敗しました");
     });
+  console.log("成功");
 
   // 既存単語を削除
   console.log("既存単語を削除");
@@ -92,6 +95,7 @@ const dummyWordProperties = {
     .then((text) => {
       if (text != "ok") throw new Error("既存単語の削除に失敗しました");
     });
+  console.log("成功");
 
   // 存在しない単語を削除
   console.log("存在しない単語を削除");
@@ -108,4 +112,5 @@ const dummyWordProperties = {
       // 既存かどうかに関係なくokが返ってくる
       if (text != "ok") throw new Error("存在しない単語の削除に失敗しました");
     });
+  console.log("成功");
 })();
