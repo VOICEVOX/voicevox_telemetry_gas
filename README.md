@@ -50,7 +50,8 @@ npm start
 ## 動作確認
 
 ```sh
-# TODO
+url=https://script.google.com/macros/s/xxxxxx-xxxxxx/exec # deploy後に表示されるURL
+npm run deploy:check -- --url $url
 ```
 
 ## タイプチェック・lint
@@ -60,7 +61,7 @@ npm run typecheck
 npm run lint
 ```
 
-## フォーマット
+## コードフォーマット
 
 ```sh
 npm run fmt
