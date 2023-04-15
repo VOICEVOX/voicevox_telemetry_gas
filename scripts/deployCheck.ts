@@ -52,7 +52,7 @@ const dummyWordProperties = {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      event: "apply_word",
+      event: "upsert_word",
       properties: dummyWordProperties,
     }),
   })
@@ -68,7 +68,7 @@ const dummyWordProperties = {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      event: "rewrite_word",
+      event: "upsert_word",
       properties: {
         ...dummyWordProperties,
         pronunciation: "ふが",

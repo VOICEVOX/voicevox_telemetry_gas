@@ -26,11 +26,7 @@ export type DictWord = z.infer<typeof dictWordSchema>;
 
 export const requestSchema = z.union([
   z.object({
-    event: z.literal("apply_word"),
-    properties: dictWordSchema,
-  }),
-  z.object({
-    event: z.literal("rewrite_word"),
+    event: z.literal("upsert_word"),
     properties: dictWordSchema,
   }),
   z.object({

@@ -8,21 +8,20 @@ export function doPost(e: GoogleAppsScript.Events.DoPost) {
   const data = requestSchema.parse(rawData);
 
   switch (data.event) {
-    case "apply_word": {
-      sheet.appendRow([
-        ...dictWordToTuple(data.properties),
-        new Date().toISOString(),
-      ]);
-      break;
-    }
-    case "rewrite_word": {
+    case "upsert_word": {
       const values = getValues(sheet);
       const row = values.findIndex((r) => r[0] === data.properties.word_uuid);
-      if (row === -1) break;
-      const range = sheet.getRange(row + 2, 1, 1, sheet.getLastColumn());
-      range.setValues([
-        [...dictWordToTuple(data.properties), new Date().toISOString()],
-      ]);
+      if (row !== -1) {
+        const range = sheet.getRange(row + 2, 1, 1, sheet.getLastColumn());
+        range.setValues([
+          [...dictWordToTuple(data.properties), new Date().toISOString()],
+        ]);
+      } else {
+        sheet.appendRow([
+          ...dictWordToTuple(data.properties),
+          new Date().toISOString(),
+        ]);
+      }
       break;
     }
     case "delete_word": {
